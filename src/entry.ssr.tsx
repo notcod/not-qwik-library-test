@@ -21,5 +21,9 @@ export default function (opts: RenderToStreamOptions) {
   return renderToStream(<Root />, {
     manifest,
     ...opts,
+    containerAttributes: {
+      lang: "en-us",
+      ...opts.containerAttributes,
+    },
   });
 }
