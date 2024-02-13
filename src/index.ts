@@ -1,2 +1,5 @@
-export { Logo } from "./components/logo/logo";
-export { Counter } from "./components/counter/counter";
+import { createQwikCity } from "@builder.io/qwik-city/middleware/node";
+import qwikCityPlan from "@qwik-city-plan";
+import render from "./entry.ssr";
+
+export const Qwik = createQwikCity({ render, qwikCityPlan });

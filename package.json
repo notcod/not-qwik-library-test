@@ -1,5 +1,5 @@
 {
-  "name": "my-qwik-library-name",
+  "name": "not-qwik-library-test",
   "version": "0.0.1",
   "description": "Create a reusable Qwik component library",
   "main": "./lib/index.qwik.mjs",
@@ -48,6 +48,10 @@
     "typescript": "5.3.3",
     "undici": "*",
     "vite": "^5.0.12",
-    "vite-tsconfig-paths": "^4.2.1"
+    "vite-tsconfig-paths": "^4.2.1",
+    "@builder.io/qwik-city": "^1.4.4"
+  },
+  "dependencies": {
+    "vite-plugin-dts": "^3.7.2"
   }
 }

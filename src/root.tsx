@@ -1,17 +1,16 @@
-import { Counter } from "./components/counter/counter";
-import { Logo } from "./components/logo/logo";
+import { component$ } from "@builder.io/qwik";
+import { QwikCityProvider, RouterOutlet } from "@builder.io/qwik-city";
 
-export default () => {
-  return (
-    <>
-      <head>
-        <meta charSet="utf-8" />
-        <title>Qwik Blank App</title>
-      </head>
-      <body>
-        <Logo />
-        <Counter />
-      </body>
-    </>
-  );
-};
+export default component$(() => {
+    return (
+        <QwikCityProvider>
+            <head>
+                <meta charSet="utf-8" />
+                <link rel="manifest" href="/manifest.json" />
+            </head>
+            <body lang="en">
+                <RouterOutlet />
+            </body>
+        </QwikCityProvider>
+    );
+});
