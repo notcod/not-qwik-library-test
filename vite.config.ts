@@ -12,21 +12,30 @@ const excludeAll = (obj) => Object.keys(obj).map(makeRegex);
 export default defineConfig(() => {
   return {
     build: {
+      ssr: true,
       target: "es2020",
       lib: {
-        entry: "./src/index.ts",
+        entry: "./src/index.tsx",
+
         formats: ["es", "cjs"],
         fileName: (format) => `index.qwik.${format === "es" ? "mjs" : "cjs"}`,
       },
       rollupOptions: {
+        input: ["src/index.tsx", "@qwik-city-plan"],
         // externalize deps that shouldn't be bundled into the library
         external: [
           /^node:.*/,
+          // /^@builder.io\/qwik.*/,
           ...excludeAll(dependencies),
           ...excludeAll(peerDependencies),
         ],
       },
     },
-    plugins: [qwikCity(), qwikVite(), tsconfigPaths()],
+    plugins: [qwikCity(), qwikVite({
+      ssr: {
+        input: "src/index.tsx",
+        outDir: "lib",
+      }
+    }), tsconfigPaths()],
   };
 });
